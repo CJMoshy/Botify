@@ -1,7 +1,5 @@
 # Discord Bot with Gemini AI
 
-![Discord Bot Logo](bot_logo.png)
-
 ## Introduction
 
 This Discord bot is powered by Discord.js and integrated with Google's Gemini AI. The bot is designed to enhance your Discord server experience by providing various features and interactions powered by Gemini AI's natural language processing capabilities.
