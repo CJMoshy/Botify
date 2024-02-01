@@ -15,22 +15,35 @@ module.exports = {
                 .setRequired(true)),
     async execute(interaction) {
 
-        const message = await interaction.reply('loading')
+        await interaction.deferReply();
+        // const message = await interaction.reply('loading')
         
-        const model = genAi.getGenerativeModel({model: "gemini-pro"})
-        const prompt = interaction.options.getString('message')
+        const model = genAi.getGenerativeModel({model: "gemini-pro"});
+        const prompt = interaction.options.getString('message');
     
-        const result = await model.generateContent(prompt)
-        const response = await result.response
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
         const text = response.text()
 
-        console.log(text)
+        const maxChars = 1900;
+        let startIndex = 0;
+        const textParts = [];
 
-        await message.edit(text).catch(error => {
-            console.log(error)
-        })
-
+        while (startIndex < text.length){
+            const chunk = text.substring(startIndex, startIndex + maxChars);
+            textParts.push(chunk);
+            startIndex += maxChars;
+        }
         
+        if (textParts.length > 0) {
+            // Send the first part as the initial reply
+            await interaction.editReply(textParts[0]);
+    
+            // If there are more parts, send them as follow-up messages
+            for (let i = 1; i < textParts.length; i++) {
+                await interaction.followUp(textParts[i]);
+            }
+        }
     }
 }
 
