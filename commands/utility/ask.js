@@ -16,19 +16,20 @@ module.exports = {
     async execute(interaction) {
 
         await interaction.deferReply();
-        // const message = await interaction.reply('loading')
         
         const model = genAi.getGenerativeModel({model: "gemini-pro"});
         const prompt = interaction.options.getString('message');
-    
+        
+        //call the google api
         const result = await model.generateContent(prompt);
         const response = await result.response;
-        const text = response.text()
+        const text = response.text() //get reponse text
 
         const maxChars = 1900;
         let startIndex = 0;
         const textParts = [];
 
+        //split output : TODO this literally just cuts the messages
         while (startIndex < text.length){
             const chunk = text.substring(startIndex, startIndex + maxChars);
             textParts.push(chunk);

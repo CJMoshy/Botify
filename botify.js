@@ -1,3 +1,7 @@
+//TODO: add a way to see what question was asked
+//TODO: fix the output
+
+
 const fs = require('node:fs')
 const path = require('node:path')
 const { Client, Events, GatewayIntentBits, Collection } = require('discord.js')  //discord module
@@ -12,7 +16,6 @@ client.commands = new Collection()
 //loader for command files
 const foldersPath = path.join(__dirname, 'commands') 
 const commandFolders = fs.readdirSync(foldersPath)
-
 for(const folder of commandFolders){
     const commandsPath = path.join(foldersPath, folder)
     const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'))
