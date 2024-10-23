@@ -1,14 +1,9 @@
-# Discord Bot with Gemini AI
+# Botify - Discord and LLMs
 
-## Introduction
+## What is this?
 
-This Discord bot is powered by Discord.js and integrated with Google's Gemini AI. The bot is designed to enhance your Discord server experience by providing various features and interactions powered by Gemini AI's natural language processing capabilities.
+This is a simple Discord bot powered by Discord.js and integrated with Google's Gemini AI. The bot is designed to enhance your Discord server experience by providing a pipeline to interact with a LLM in your discord server. When set up properly, you can expect to be able to interact with an LLM through a channel in your server 
 
-## Features
-
-- **Natural Language Understanding**: Utilizes Gemini AI to understand and respond to natural language queries and commands from users.
-- **Interactive Responses**: Engages users with interactive responses tailored to their inquiries and commands.
-- **Rich Embeds**: Generates rich embeds to display information and results in an appealing and organized format.
 
 ## Setup
 
@@ -16,4 +11,5 @@ This Discord bot is powered by Discord.js and integrated with Google's Gemini AI
 
 2. Configure Environment Variables: Create a .env file in the root directory and add your Discord bot token and Gemini AI API key.
 
-3. Run the bot: node botify.js
+3. if running locally, Ensure JS runtime (node.js, etc..) is installed on your system
+4. run the program from the main file -> node botify.js
