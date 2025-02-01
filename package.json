@@ -4,7 +4,8 @@
   "description": "",
   "main": "./src/botify.js",
   "scripts": {
-    "test": "node -"
+    "test": "node -",
+    "start": "deno run -A botify.ts"
   },
   "keywords": [],
   "author": "CJMoshy",
