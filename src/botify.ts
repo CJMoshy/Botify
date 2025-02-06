@@ -6,10 +6,9 @@ import {
     Interaction,
 } from "discord.js";
 
-import "dotenv/config";
+import "jsr:@std/dotenv/load";
 import { Command } from "./index.d.ts";
 import * as path from "jsr:@std/path";
-import process from "node:process";
 
 const __dirname = import.meta.dirname as string;
 
@@ -66,4 +65,4 @@ client.once(Events.ClientReady, (readyClient) => {
 });
 
 // Login the bot
-client.login(process.env.DISCORD_TOKEN);
+client.login(Deno.env.get("DISCORD_TOKEN"));
